@@ -1,0 +1,10 @@
+﻿ID,Producto,Precio,Stock,Material,Color,Tela
+123,Remera1,1000,100,Algodon,Negro,Cardado
+234,Remera2,1200,120,Poliester,Blanco,Semipeinado
+345,Remera3,1500,150,Nylon,Rojo,Peinado
+456,Pantalon1,2000,40,Algodon,Azul,Jean
+567,Pantalon2,2300,60,Poliester,Beige,Lino
+678,Pantalon3,2700,80,Nylon,Gris,Sastrero
+789,Buzos1,3000,50,Algodon,Celeste,Frizada
+891,Buzos2,3300,70,Poliester,Rosa,Rustico
+910,Buzos3,3800,90,Nylon,Bordo,Lycra
