@@ -1,0 +1,169 @@
+{
+    "type": "database",
+    "name": "Ropa_db",
+    "objects": [
+        {
+            "type": "table",
+            "database": null,
+            "name": "productos",
+            "withoutRowId": false,
+            "strict": false,
+            "ddl": "CREATE TABLE productos (ID INTEGER PRIMARY KEY, Producto TEXT NOT NULL, Precio REAL NOT NULL, Stock INTEGER NOT NULL, Material TEXT NOT NULL, Color TEXT NOT NULL, Tela TEXT NOT NULL)",
+            "columns": [
+                {
+                    "name": "ID",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "PRIMARY KEY",
+                            "definition": "PRIMARY KEY"
+                        }
+                    ]
+                },
+                {
+                    "name": "Producto",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "Precio",
+                    "type": "REAL",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "Stock",
+                    "type": "INTEGER",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "Material",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "Color",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                },
+                {
+                    "name": "Tela",
+                    "type": "TEXT",
+                    "constraints": [
+                        {
+                            "type": "NOT NULL",
+                            "definition": "NOT NULL"
+                        }
+                    ]
+                }
+            ],
+            "rows": [
+                [
+                    123,
+                    "Remera1",
+                    1200,
+                    100,
+                    "Algodon",
+                    "Negro",
+                    "Cardado"
+                ],
+                [
+                    234,
+                    "Remera2",
+                    1200,
+                    120,
+                    "Poliester",
+                    "Blanco",
+                    "Semipeinado"
+                ],
+                [
+                    345,
+                    "Remera3",
+                    1500,
+                    150,
+                    "Nylon",
+                    "Rojo",
+                    "Peinado"
+                ],
+                [
+                    456,
+                    "Pantalon1",
+                    2000,
+                    40,
+                    "Algodon",
+                    "Azul",
+                    "Jean"
+                ],
+                [
+                    567,
+                    "Pantalon3",
+                    2300,
+                    60,
+                    "Poliester",
+                    "Beige",
+                    "Lino"
+                ],
+                [
+                    678,
+                    "Pantalon3",
+                    2700,
+                    80,
+                    "Nylon",
+                    "Gris",
+                    "Sastrero"
+                ],
+                [
+                    789,
+                    "Buzos1",
+                    3000,
+                    50,
+                    "Algodon",
+                    "Celeste",
+                    "Frizada"
+                ],
+                [
+                    891,
+                    "Buzos2",
+                    3300,
+                    70,
+                    "Poliester",
+                    "Rosa",
+                    "Rustico"
+                ],
+                [
+                    910,
+                    "Buzos3",
+                    3800,
+                    90,
+                    "Nylon",
+                    "Bordo",
+                    "Lycra"
+                ]
+            ]
+        }
+    ]
+}
