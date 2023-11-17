@@ -147,7 +147,7 @@ def menu():
 
         elif opcion == 3:
             id = int(input('ingrese el id del proudcto que desea buscar'))
-            result = get_by_id(id)  # devuelve una tupla con el registro
+            result = get_by_id(id)  
             if id not in ROPA_DB_FILE:
                 print(result)
                 print()
@@ -158,7 +158,7 @@ def menu():
 
 
         elif opcion == 4:
-            result = get_ropas()  # devuelve una lista de tuplas donde cada tupla es un registro
+            result = get_ropas()  
             print(result)
             print()
             print()
