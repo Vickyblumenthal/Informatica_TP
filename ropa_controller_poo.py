@@ -1,3 +1,5 @@
+from flask import jsonify
+
 from db_ropa import get_db
 from clase_ropa import Ropa
 import sqlite3
@@ -10,7 +12,7 @@ def get_db():
 
 def create_tables():
     tables = [
-        """CREATE TABLE IF NOT EXISTS ropa(
+        """CREATE TABLE IF NOT EXISTS productos(
                 ID INTEGER PRIMARY KEY,
                 producto TEXT NOT NULL,
                 precio INTEGER NOT NULL,
@@ -27,21 +29,21 @@ def create_tables():
         cursor.execute(table)
 
 
-def insert_ropa(id, producto, precio, stock, material, color, tela):
+def insert_ropa(ID, producto, precio, stock, material, color, tela):
     db = get_db()
     cursor = db.cursor()
-    statement = "INSERT INTO ropas (id, producto, precio, stock, material, color, tela) \
-    VALUES ( ?, ?, ?, ? ,?, ?, ?, ?, ?)"
-    cursor.execute(statement, [id, producto, precio, stock, material, color, tela])
+    statement = ("INSERT INTO productos (ID, producto, precio, stock, material, color, tela) "
+                 "VALUES (?, ?, ?, ?, ?, ?, ?)")
+    cursor.execute(statement, [ID, producto, precio, stock, material, color, tela])
     db.commit()
     return True
 
 def update_ropa(id, producto, precio, stock, material, color, tela):
     db = get_db()
     cursor = db.cursor()
-    statement = "UPDATE ropas SET id = ?, producto = ?, stock= ?, material= ?, color= ?, tela= ?, \
+    statement = "UPDATE productos SET id = ?, producto = ?, precio = ?, stock = ?, material = ?, color = ?, tela = ? \
     WHERE id = ?"
-    cursor.execute(statement, [id, producto, precio, stock, material, color, tela])
+    cursor.execute(statement, [id, producto, precio, stock, material, color, tela, id])
     db.commit()
     return True
 
@@ -49,7 +51,7 @@ def update_ropa(id, producto, precio, stock, material, color, tela):
 def delete_ropa(id):
     db = get_db()
     cursor = db.cursor()
-    statement = "DELETE FROM ropas WHERE id = ?"
+    statement = "DELETE FROM productos WHERE id = ?"
     cursor.execute(statement, [id])
     db.commit()
     return True
@@ -58,9 +60,13 @@ def delete_ropa(id):
 def get_by_id(id):
     db = get_db()
     cursor = db.cursor()
-    statement = "SELECT id, producto, precio, stock, material, color, tela FROM ropa WHERE id = ?"
+    statement = "SELECT id, producto, precio, stock, material, color, tela FROM productos WHERE id = ?"
     cursor.execute(statement, [id])
     single_ropa = cursor.fetchone()
+
+    if single_ropa is None:
+        return None
+
     id = single_ropa[0]
     producto = single_ropa[1]
     precio = single_ropa[2]
@@ -75,19 +81,19 @@ def get_by_id(id):
 def get_ropas():
     db = get_db()
     cursor = db.cursor()
-    query = "SELECT id, producto, precio, stock, material, color, tela FROM ropas"
+    query = "SELECT ID, producto, precio, stock, material, color, tela FROM productos"
     cursor.execute(query)
     ropa_list = cursor.fetchall()
     list_of_ropas=[]
     for ropa in ropa_list:
-        id = ropa[0]
+        ID = ropa[0]
         producto = ropa[1]
         precio = ropa[2]
         stock = ropa[3]
         material = ropa[4]
         color = ropa[5]
         tela = ropa[6]
-        ropa_to_add = Ropa(id, producto, precio, stock, material, color, tela)
+        ropa_to_add = Ropa(ID, producto, precio, stock, material, color, tela)
         list_of_ropas.append(ropa_to_add)
     return list_of_ropas
 

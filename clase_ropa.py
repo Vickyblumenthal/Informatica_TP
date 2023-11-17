@@ -1,6 +1,6 @@
 class Ropa:
 
-    def _init_(self, id, producto, precio, stock, material, color, tela) -> None:
+    def __init__(self, id, producto, precio, stock, material, color, tela) -> None:
         self.id = id
         self.producto = producto
         self.precio = precio
