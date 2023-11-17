@@ -4,7 +4,7 @@ import ropa_controller_poo
 
 
 app = Flask(__name__)
-DATABASE_NAME = "ropa.db"
+DATABASE_NAME = "ropa.db()
 
 @app.route('/ropa', methods=["GET"])
 def get_ropa():
